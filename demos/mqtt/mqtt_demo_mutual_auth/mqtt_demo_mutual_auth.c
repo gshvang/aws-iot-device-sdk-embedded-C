@@ -375,7 +375,7 @@ static uint32_t generateRandomNumber();
  *
  * @return EXIT_FAILURE on failure; EXIT_SUCCESS on successful connection.
  */
-static int connectToServerWithBackoffRetries(NetworkContext_t* pNetworkContext);
+static int connectToServerWithBackoffRetries(NetworkContext_t* pNetworkContext, MQTTContext_t* pMqttContext, bool* pClientSessionPresent, bool* pBrokerSessionPresent);
 
 /**
  * @brief A function that connects to MQTT broker,
@@ -390,7 +390,7 @@ static int connectToServerWithBackoffRetries(NetworkContext_t* pNetworkContext);
  * @return EXIT_FAILURE on failure; EXIT_SUCCESS on success.
  */
 static int subscribePublishLoop(MQTTContext_t* pMqttContext,
-    bool* pClientSessionPresent);
+    bool* pMqttSessionEstablished, bool* pBrokerSessionPresent);
 
 /**
  * @brief The function to handle the incoming publishes.
@@ -647,7 +647,7 @@ static int connectToServerWithBackoffRetries(NetworkContext_t* pNetworkContext, 
                 (void)Openssl_Disconnect(pNetworkContext);
             }
             else {
-                pClientSessionPresent = true;
+                *pClientSessionPresent = true;
             }
 
         }
@@ -1583,7 +1583,7 @@ int main(int argc,
             else
             {
                 /* If TLS session is established, execute Subscribe/Publish loop. */
-                *mqttSessionPresent = true;
+                mqttSessionPresent = true;
                 returnStatus = subscribePublishLoop(&mqttContext, &mqttSessionPresent, &brokerSessionPresent);
             }
 
