@@ -100,7 +100,7 @@
     *
     * @note This certificate should be PEM-encoded.
     */
-#define CLIENT_CERT_PATH    "/mnt/c/Users/gshvang/Shivangi_Workspace/5c284842d0-certificate.pem"
+#define CLIENT_CERT_PATH    "/mnt/c/Users/gshvang/Shivangi_Workspace/5c284842d0-certificate.pem.crt"
 
     /**
      * @brief Path of the file containing the client's private key.
