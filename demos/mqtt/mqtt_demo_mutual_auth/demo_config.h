@@ -100,7 +100,7 @@
     *
     * @note This certificate should be PEM-encoded.
     */
-#define CLIENT_CERT_PATH    "C:/Users/gshvang/Shivangi_Workspace/5c284842d0-certificate.pem"
+#define CLIENT_CERT_PATH    "/mnt/c/Users/gshvang/Shivangi_Workspace/5c284842d0-certificate.pem"
 
     /**
      * @brief Path of the file containing the client's private key.
@@ -111,7 +111,7 @@
      *
      * @note This private key should be PEM-encoded.
      */
-#define CLIENT_PRIVATE_KEY_PATH    "C:/Users/gshvang/Shivangi_Workspace/5c284842d0-private.pem.key"
+#define CLIENT_PRIVATE_KEY_PATH    "/mnt/c/Users/gshvang/Shivangi_Workspace/5c284842d0-private.pem.key"
 
      /**
       * @brief The username value for authenticating client to MQTT broker when
